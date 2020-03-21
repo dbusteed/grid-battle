@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Grid Battle</title>
+    <link rel="stylesheet" href='./style.css'>
+  </head>
+  <body>
+    <div class="main">
+
+      <div class="left">
+        <div class="instructions">
+          <h3>HOW TO PLAY</h3>
+          <ul class="sublist">
+            <li><strong>OBJECTIVE:</strong> defeat all enemy armies</li>
+            <li><strong>BASICS:</strong>
+              <ul>
+                <li>capture zones to get stronger</li>
+                <li>move next to enemies to attack</li>
+                <li>move next to your own armies to heal</li>
+                <li>level up / split your armies</li>
+              </ul>
+            </li>
+            <li><strong>CONTROLS:</strong>
+              <ul>
+                <li><span class="key">wasd</span> -- move selected army</li>
+                <li><span class="key">e</span> -- select next army</li>
+                <li><span class="key">q</span> -- select previous army</li>
+                <li><span class="key">1-9</span> -- select army by ID</li>
+                <li><span class="key">WASD</span> -- split selected army</li>
+              </ul>
+            </li>
+            <li><strong>DETAILS:</strong>
+              <ul class="sublist">
+                <li>armies level up by
+                  <ul>
+                    <li>capturing zones</li>
+                    <li>attacking enemies</li>
+                  </ul>
+                </li>
+                <li>army's "attack power" based on level</li>
+                <li># of armies is limited by the zones you control
+                  <ul>
+                    <li>after 2 armies, army limit is #zones / 4</li>
+                    <li>ex. you need 12 zones to make a 3rd army</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="center">
+        <div>
+          <canvas id="game" width="500" height="500"></canvas>
+          <div class="buttons">
+            <button onclick="newBoard()">Create New Board</button>
+            <button onclick="startGame()">Start Game</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="right">
+        <div class="info">
+          <h3 id="info-header">CURRENT GAME</h3>
+          <p id="game-info">no current game</p>
+          <div id="player-list"></div>
+          
+          <hr />
+
+          <h3>LOBBY</h3>
+          <div id="lobby-list"></div>
+        </div>
+      </div>
+      
+    </div>
+      
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src='./client.js'></script>
+  </body>
+</html>
